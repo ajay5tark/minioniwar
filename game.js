@@ -1,14 +1,21 @@
-p1x=300
-p2x=250
-p1y=300
-p2y=100
+p1x=1250
+p2x=0
+p1y=600
+p2y=600
+score1 = 100
+score2 = 100
 function setup() {
   createCanvas(1350, 630);
 	background(102,153,153);
 }
 
 function draw() {
-minion()
+if(gameover()==1){minion()}
+else
+{
+	
+    document.location.reload();
+}
 }
 function minion()
 {
@@ -87,7 +94,11 @@ function keyTyped() {
   {
 	fire(fx,fy);
     fx-=50;}
+  if (p2y >= p1y-75 && p2y < p1y + 75 )
+  {	score2 = score2- 15
   }
+  }
+  
   if(key=='o')
   {
   fax=p1x+115;
@@ -96,6 +107,9 @@ function keyTyped() {
   {
 	fart(fax,fay);
     fax+=20;}
+  if (p2y >= p1y-75 && p2y < p1y + 75 )
+  {	score2 = score2- 15
+  }
   }
   if(key=='f')
   {
@@ -106,6 +120,9 @@ function keyTyped() {
     
     fart(fx,fy);
     fx-=20;}
+  if (p1y >= p2y && p1y < p2y + 50 )
+  {		score1 = score1- 15
+  }
   }
   if(key=='g')
   {
@@ -116,6 +133,10 @@ function keyTyped() {
 	
 	fire(fax,fay);
     fax+=50;}
+  
+	if (p1y >= p2y && p1y < p2y + 50 )
+  {score1 = score1- 15
+  }
   }
   if (key === 'a') {
     p2x = p2x -1
