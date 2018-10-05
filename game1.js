@@ -1,9 +1,31 @@
+<<<<<<< HEAD
 p1x=1250
 p2x=0
 p1y=600
 p2y=600
 score1 = 100
 score2 = 100
+=======
+p1x=300
+p2x=250
+p1y=300
+p2y=100
+
+var music;
+var fireSound;
+var fartSound;
+var g_over1_Sound;
+var g_over2_Sound;
+
+function preload() {
+  music = loadSound("musicAS.mp3")
+  fireSound = loadSound("Scifi-03.mp3")
+  fartSound = loadSound("fart.mp3")
+  g_over1_Sound = loadSound("game_over.mp3")
+  g_over2_Sound = loadSound("game_over(1).mp3")
+}
+
+>>>>>>> ab998371b3f21cacb80d95895b8b477b4c913978
 function setup() {
   createCanvas(1350, 630);
 	background(102,153,153);
@@ -92,7 +114,10 @@ function keyTyped() {
   fy=p1y+50;
 	while(fx>0)
   {
-	fire(fx,fy);
+
+    fireSound.play() ;
+
+	  fire(fx,fy);
     fx-=50;}
   if (p2y >= p1y-75 && p2y < p1y + 75 )
   {	score2 = score2- 15
@@ -105,6 +130,9 @@ function keyTyped() {
   fay=p1y+70;
 	while(fax<1350)
   {
+
+    fartSound.play() ;
+
 	fart(fax,fay);
     fax+=20;}
   if (p2y >= p1y-75 && p2y < p1y + 75 )
@@ -117,7 +145,8 @@ function keyTyped() {
   fy=p2y+70;
 	while(fx>0)
   {
-    
+    fartSound.play() ;
+
     fart(fx,fy);
     fx-=20;}
   if (p1y >= p2y && p1y < p2y + 50 )
@@ -130,7 +159,8 @@ function keyTyped() {
   fay=p2y+50;
 	while(fax<1350)
   {
-	
+	   fireSound.play() ;
+
 	fire(fax,fay);
     fax+=50;}
   
