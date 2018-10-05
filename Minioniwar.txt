@@ -1,0 +1,8 @@
+<html>
+  <head>
+    <title>Minioniwar
+    </title>
+  </head>
+<body background="minp.jpg">
+</body>
+</html>
