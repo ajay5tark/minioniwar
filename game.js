@@ -31,13 +31,13 @@ else
 function  gameoverdisplay1()
  {
   background(255,102,0)
-  text('Player 1 win the game',500,500,500,500)
+  text('Player 1 won the game',600,360,500,500)
  }
 
 function  gameoverdisplay2()
  {
   background(0,204,0)
-  text('Player 1 win the game',500,500,500,500)
+  text('Player 2 won the game',600,360,500,500)
  }
 function gameover()
 {
@@ -113,8 +113,8 @@ function minion()
   ellipse(p2x+25,p2y+100,25,25)
   ellipse(p2x+75,p2y+100,25,25) 
   
-  text(score1,20,20,100,100)
-  text(score2,1300,20,100,100)
+  text(score2,20,20,100,100)
+  text(score1,1300,20,100,100)
 
 }
 function fire(fx,fy)
