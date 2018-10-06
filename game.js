@@ -1,5 +1,5 @@
 p1x=1400
-p2x=50
+p2x=25
 p1y=840
 p2y=840
 score1 = 100
@@ -68,8 +68,8 @@ function minion()
 
   if (p1x<0)p1x=0;
   if (p1y<50)p1y=50;
-  if (p1x>1350)p1x=1350;
-  if (p1y>725)p1y=725;
+  if (p1x>1375)p1x=1375;
+  if (p1y>720)p1y=720;
 
   if (keyIsDown(LEFT_ARROW))p1x -=5;
   if (keyIsDown(RIGHT_ARROW)){p1x +=5;}
@@ -94,8 +94,8 @@ function minion()
   ellipse(p1x+75,p1y+100,25,25) 
   if (p2x<0)p2x=0;
   if (p2y<50)p2y=50;
-  if (p2x>1350)p2x=1350;
-  if (p2y>725)p2y=725;
+  if (p2x>1375)p2x=1375;
+  if (p2y>720)p2y=720;
 
   keyTyped();
   fill(0,0,0);
@@ -116,7 +116,7 @@ function minion()
   ellipse(p2x+75,p2y+100,25,25) 
   
   text(score2,20,20,100,100)
-  text(score1,1400,20,100,100)
+  text(score1,1450,20,100,100)
 
 }
 function fire(fx,fy)
