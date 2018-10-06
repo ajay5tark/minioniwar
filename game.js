@@ -68,7 +68,7 @@ function minion()
 
   if (p1x<0)p1x=0;
   if (p1y<50)p1y=50;
-  if (p1x>1400)p1x=1400;
+  if (p1x>1350)p1x=1350;
   if (p1y>725)p1y=725;
 
   if (keyIsDown(LEFT_ARROW))p1x -=5;
@@ -94,7 +94,7 @@ function minion()
   ellipse(p1x+75,p1y+100,25,25) 
   if (p2x<0)p2x=0;
   if (p2y<50)p2y=50;
-  if (p2x>1400)p2x=1400;
+  if (p2x>1350)p2x=1350;
   if (p2y>725)p2y=725;
 
   keyTyped();
