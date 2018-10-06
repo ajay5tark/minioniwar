@@ -24,7 +24,7 @@ if(gameover()!=0){minion()}
 else
 { 
 
-  if (keyIsDown(LEFT_ARROW))document.location.reload();
+document.location.reload();
 
 }
 }
@@ -32,14 +32,14 @@ function  gameoverdisplay1()
  {
   background(255,102,0)
   fill(0)
-  text('Player 1 won the game',600,360,500,500)
+  alert('Player 1 won the game.Press Ok to restart')
  }
 
 function  gameoverdisplay2()
  {
   background(0,204,0)
   fill(0)
-  text('Player 2 won the game',600,360,500,500)
+  alert('Player 2 won the game.Press OK to restart')
  }
 function gameover()
 {
