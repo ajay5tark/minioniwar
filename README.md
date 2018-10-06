@@ -1,2 +1,0 @@
-# minioniwar
-Our first hackathon 
