@@ -13,7 +13,7 @@ musicAS.src = "musicAS.mp3";
 //game_over.src = "gameover(1).mp3";
 
 function setup() {
-  createCanvas(1500, 850);
+  createCanvas(1450, 850);
   background(0,0,0);
 }
 
