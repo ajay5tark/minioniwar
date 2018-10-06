@@ -1,7 +1,7 @@
-p1x=1200
+p1x=1450
 p2x=50
-p1y=750
-p2y=750
+p1y=850
+p2y=850
 score1 = 100
 score2 = 100
 
@@ -13,7 +13,7 @@ musicAS.src = "musicAS.mp3";
 //game_over.src = "gameover(1).mp3";
 
 function setup() {
-  createCanvas(1350, 750);
+  createCanvas(1500, 850);
   background(0,0,0);
 }
 
@@ -66,8 +66,8 @@ function minion()
 
   if (p1x<0)p1x=0;
   if (p1y<50)p1y=50;
-  if (p1x>1250)p1x=1250;
-  if (p1y>625)p1y=625;
+  if (p1x>1400)p1x=1400;
+  if (p1y>750)p1y=750;
 
   if (keyIsDown(LEFT_ARROW))p1x -=5;
   if (keyIsDown(RIGHT_ARROW)){p1x +=5;}
@@ -92,8 +92,8 @@ function minion()
   ellipse(p1x+75,p1y+100,25,25) 
   if (p2x<0)p2x=0;
   if (p2y<50)p2y=50;
-  if (p2x>1250)p2x=1250;
-  if (p2y>625)p2y=625;
+  if (p2x>1400)p2x=1400;
+  if (p2y>750)p2y=750;
 
   keyTyped();
   fill(0,0,0);
