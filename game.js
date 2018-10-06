@@ -10,7 +10,7 @@ var musicAS = new Audio();
 musicAS.src = "musicAS.mp3";
 
 //var game_over = new Audio();
-//game_over.src = "gameover(1).mp3";
+//game_over.src = "gameover.mp3";
 
 function setup() {
   createCanvas(1500, 840);
@@ -48,15 +48,12 @@ if(score1<0)
 {
 
   gameoverdisplay2()
- 
-  sleep(15000)
   return 0
 }
 else if(score2<0)
 {
 
   gameoverdisplay1()
-  sleep(15000)
   return 0  
 }
   return 1
@@ -215,12 +212,4 @@ key='m';
 function player2()
 {
   keyTyped()
-}
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
 }
