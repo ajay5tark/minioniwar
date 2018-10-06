@@ -2,21 +2,20 @@ p1x=300
 p2x=250
 p1y=300
 p2y=100
-score1 = 100
-score2 = 100
 
-var fart = new Audio();
-fart.src = "fart.mp3";
+ var music;
+ var fireSound;
+ var fartSound;
+ var g_over1_Sound;
+ var g_over2_Sound;
 
-var fire = new Audio();
-fire.src = "fire.mp3";
-
-var musicAS = new Audio();
-musicAS.src = "musicAS.mp3";
-
-var game_over = new Audio();
-game_over.src = "gameover(1).mp3";
-
+function preload() {
+  music = loadSound("musicAS.mp3")
+  fireSound = loadSound("Scifi-03.mp3")
+  fartSound = loadSound("fart.mp3")
+  g_over1_Sound = loadSound("game_over.mp3")
+  g_over2_Sound = loadSound("game_over(1).mp3")
+}
 
 function setup() {
   createCanvas(1350, 630);
@@ -24,27 +23,7 @@ function setup() {
 }
 
 function draw() {
-if(gameover()!=0){minion()}
-else
-{ 
-  game_over.play(); 
-    document.location.reload();
-}
-}
-function gameover()
-{
-  
-if(score1<0)
-{
-  console.log('game over player 2 won')
-  return 0
-}
-else if(score2<0)
-{
-  console.log('game over player 1 won')
-  return 0  
-}
-  return 1
+minion()
 }
 function minion()
 {
@@ -77,8 +56,6 @@ function minion()
   fill(255,255,255)
   ellipse(p1x+25,p1y+100,25,25)
   ellipse(p1x+75,p1y+100,25,25) 
-  
-
   if (p2x<0)p2x=0;
   if (p2y<50)p2y=50;
   if (p2x>1250)p2x=1250;
@@ -107,7 +84,6 @@ function fire(fx,fy)
 {
     fill(255,0,0);
     arc(fx,fy,75,50,2.0,-2.0,PIE)
-  fire.play(); 
  
 }
 
@@ -115,8 +91,6 @@ function fart(fax,fay)
 {
     fill(51, 204, 51);
   ellipse(fax,fay,25,25);
-  fart.play(); 
-
 }
 
 function keyTyped() {
@@ -126,24 +100,23 @@ function keyTyped() {
   fy=p1y+50;
   while(fx>0)
   {
-  fire(fx,fy);
+
+    fireSound.play() ;
+
+    fire(fx,fy);
     fx-=50;}
-  if (p2y >= p1y-75 && p2y < p1y + 75 )
-  { score2 = score2- 15
   }
-  }
-  
   if(key=='o')
   {
   fax=p1x+115;
   fay=p1y+70;
   while(fax<1350)
   {
+
+    fartSound.play() ;
+
   fart(fax,fay);
     fax+=20;}
-  if (p2y >= p1y-75 && p2y < p1y + 75 )
-  { score2 = score2- 15
-  }
   }
   if(key=='f')
   {
@@ -151,12 +124,10 @@ function keyTyped() {
   fy=p2y+70;
   while(fx>0)
   {
-    
+    fartSound.play() ;
+
     fart(fx,fy);
     fx-=20;}
-  if (p1y >= p2y && p1y < p2y + 50 )
-  {   score1 = score1- 15
-  }
   }
   if(key=='g')
   {
@@ -164,13 +135,10 @@ function keyTyped() {
   fay=p2y+50;
   while(fax<1350)
   {
-  
+     fireSound.play() ;
+
   fire(fax,fay);
     fax+=50;}
-  
-  if (p1y >= p2y && p1y < p2y + 50 )
-  {score1 = score1- 15
-  }
   }
   if (key == 'a') {
     p2x = p2x -1
@@ -181,8 +149,13 @@ function keyTyped() {
   if (key == 'w') {
     p2y=p2y-1;
   }
-  if (key== 's') {
+  if (key == 's') {
     p2y=p2y+1;
+
 }
   
+}
+function player2()
+{
+  keyTyped()
 }
