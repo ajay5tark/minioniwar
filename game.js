@@ -1,4 +1,4 @@
-p1x=1500
+p1x=1400
 p2x=50
 p1y=840
 p2y=840
@@ -68,7 +68,7 @@ function minion()
 
   if (p1x<0)p1x=0;
   if (p1y<50)p1y=50;
-  if (p1x>1350)p1x=1350;
+  if (p1x>1400)p1x=1400;
   if (p1y>725)p1y=725;
 
   if (keyIsDown(LEFT_ARROW))p1x -=5;
