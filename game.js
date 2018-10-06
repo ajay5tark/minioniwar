@@ -116,7 +116,7 @@ function minion()
   ellipse(p2x+75,p2y+100,25,25) 
   
   text(score2,20,20,100,100)
-  text(score1,1300,20,100,100)
+  text(score1,1400,20,100,100)
 
 }
 function fire(fx,fy)
