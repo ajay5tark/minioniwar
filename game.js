@@ -1,65 +1,78 @@
-p1x=300
-p2x=250
-p1y=300
-p2y=100
+p1x=1200
+p2x=50
+p1y=750
+p2y=750
 score1 = 100
 score2 = 100
 
-var fart = new Audio();
-fart.src = "fart.mp3";
-
-var fire = new Audio();
-fire.src = "fire.mp3";
 
 var musicAS = new Audio();
 musicAS.src = "musicAS.mp3";
 
-var game_over = new Audio();
-game_over.src = "gameover(1).mp3";
-
+//var game_over = new Audio();
+//game_over.src = "gameover(1).mp3";
 
 function setup() {
-  createCanvas(1350, 630);
-  background(102,153,153);
+  createCanvas(1350, 750);
+  background(0,0,0);
 }
 
 function draw() {
+  musicAS.play()
+
 if(gameover()!=0){minion()}
 else
 { 
-  game_over.play(); 
-    document.location.reload();
+
+  if (keyIsDown(LEFT_ARROW))document.location.reload();
+
 }
 }
+function  gameoverdisplay1()
+ {
+  background(255,102,0)
+  text('Player 1 win the game',500,500,500,500)
+ }
+
+function  gameoverdisplay2()
+ {
+  background(0,204,0)
+  text('Player 1 win the game',500,500,500,500)
+ }
 function gameover()
 {
   
 if(score1<0)
 {
-  console.log('game over player 2 won')
+
+  gameoverdisplay2()
+ 
+  sleep(15000)
   return 0
 }
 else if(score2<0)
 {
-  console.log('game over player 1 won')
+
+  gameoverdisplay1()
+  sleep(15000)
   return 0  
 }
   return 1
 }
 function minion()
 {
-  
+
   background(102,153,153);
 
   if (p1x<0)p1x=0;
   if (p1y<50)p1y=50;
-  if (p1x>1250)p2x=1250;
-  if (p1y>525)p1y=525;
+  if (p1x>1250)p1x=1250;
+  if (p1y>625)p1y=625;
 
-  if (keyIsDown(LEFT_ARROW))p1x -=1;
-  if (keyIsDown(RIGHT_ARROW)){p1x += 1;}
-  if (keyIsDown(UP_ARROW)){p1y-=1;}
-  if (keyIsDown(DOWN_ARROW)){p1y+=1;}
+  if (keyIsDown(LEFT_ARROW))p1x -=5;
+  if (keyIsDown(RIGHT_ARROW)){p1x +=5;}
+  if (keyIsDown(UP_ARROW)){p1y-=5;}
+  if (keyIsDown(DOWN_ARROW)){p1y+=5;}
   
   fill(26,140,255);
   ellipse(p1x+50,p1y,100,100)
@@ -77,12 +90,10 @@ function minion()
   fill(255,255,255)
   ellipse(p1x+25,p1y+100,25,25)
   ellipse(p1x+75,p1y+100,25,25) 
-  
-
   if (p2x<0)p2x=0;
   if (p2y<50)p2y=50;
   if (p2x>1250)p2x=1250;
-  if (p2y>525)p2y=525;
+  if (p2y>625)p2y=625;
 
   keyTyped();
   fill(0,0,0);
@@ -101,13 +112,15 @@ function minion()
   fill(255,255,255)
   ellipse(p2x+25,p2y+100,25,25)
   ellipse(p2x+75,p2y+100,25,25) 
+  
+  text(score1,20,20,100,100)
+  text(score2,1300,20,100,100)
 
 }
 function fire(fx,fy)
 {
     fill(255,0,0);
     arc(fx,fy,75,50,2.0,-2.0,PIE)
-  fire.play(); 
  
 }
 
@@ -115,8 +128,6 @@ function fart(fax,fay)
 {
     fill(51, 204, 51);
   ellipse(fax,fay,25,25);
-  fart.play(); 
-
 }
 
 function keyTyped() {
@@ -127,23 +138,28 @@ function keyTyped() {
   while(fx>0)
   {
   fire(fx,fy);
-    fx-=50;}
-  if (p2y >= p1y-75 && p2y < p1y + 75 )
+
+    fx-=20;}
+  if (p2y >= p1y-75 && p2y < p1y + 75 && p2x<p1x)
   { score2 = score2- 15
   }
+
+key='m';
   }
   
   if(key=='o')
   {
   fax=p1x+115;
-  fay=p1y+70;
+  fay=p1y+70; 
   while(fax<1350)
   {
   fart(fax,fay);
-    fax+=20;}
-  if (p2y >= p1y-75 && p2y < p1y + 75 )
+    fax+=15;}
+  if (p2y >= p1y-75 && p2y < p1y + 75 && p2x>p1x)
   { score2 = score2- 15
   }
+  
+key='m';
   }
   if(key=='f')
   {
@@ -153,10 +169,12 @@ function keyTyped() {
   {
     
     fart(fx,fy);
-    fx-=20;}
-  if (p1y >= p2y && p1y < p2y + 50 )
+    fx-=15;}
+  if (p1y >= p2y && p1y < p2y + 50 && p2x>p1x )
   {   score1 = score1- 15
   }
+  
+key='m';
   }
   if(key=='g')
   {
@@ -166,23 +184,41 @@ function keyTyped() {
   {
   
   fire(fax,fay);
-    fax+=50;}
+    fax+=20;
+  }
   
-  if (p1y >= p2y && p1y < p2y + 50 )
+  if (p1y >= p2y && p1y < p2y + 50 && p2x<p1x)
   {score1 = score1- 15
   }
+
+key='m';
   }
   if (key == 'a') {
-    p2x = p2x -1
+    p2x = p2x -5
   } 
   if (key == 'd') {
-    p2x=p2x+1;
+    p2x=p2x+5;
+
   }
   if (key == 'w') {
-    p2y=p2y-1;
+    p2y=p2y-5;
   }
   if (key== 's') {
-    p2y=p2y+1;
+    p2y=p2y+5;
+
 }
+
   
+}
+function player2()
+{
+  keyTyped()
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
